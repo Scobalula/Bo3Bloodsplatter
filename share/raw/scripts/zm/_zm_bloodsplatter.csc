@@ -67,19 +67,19 @@ function private splash_blood_cf(n_local_client, n_old, n_new, b_new_ent, b_init
 	self duplicate_render::update_dr_filters(n_local_client);
 	self MapShaderConstant(n_local_client, 0, "scriptVector0", 1.0); 
 
-    // Let the blood sit for a bit >:)
+	// Let the blood sit for a bit >:)
 	waitrealtime(BLOOD_SPASH_TIME);
 
 	start_time = self GetClientTime();
 	end_time = start_time + int(BLOOD_SPASH_FADE_TIME * 1000);
 	val = 1.0;
 
-    // Fade out the blood FX using script material vectors
-    // This doesn't interfere with emissives as they use 2
-    // If you do swap out for an emissive material, this 
-    // may cause issues with wonder weapons, you'll need to
-    // account for that, I have no need to account for it,
-    // as the script does what I need it to.
+	// Fade out the blood FX using script material vectors
+	// This doesn't interfere with emissives as they use 2
+	// If you do swap out for an emissive material, this 
+	// may cause issues with wonder weapons, you'll need to
+	// account for that, I have no need to account for it,
+	// as the script does what I need it to.
 	while (isdefined(self) && val > 0)
 	{
 		self MapShaderConstant(n_local_client, 0, "scriptVector0", val);
