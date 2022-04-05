@@ -70,6 +70,10 @@ function private splash_blood_cf(n_local_client, n_old, n_new, b_new_ent, b_init
 	// Let the blood sit for a bit >:)
 	waitrealtime(BLOOD_SPASH_TIME);
 
+	// Check for spectators, people respawning, and end game
+	if(!isdefined(self))
+		return;
+
 	start_time = self GetClientTime();
 	end_time = start_time + int(BLOOD_SPASH_FADE_TIME * 1000);
 	val = 1.0;

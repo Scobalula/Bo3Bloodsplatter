@@ -125,10 +125,9 @@ function splash_blood_on_nearby_players(origin, dist)
 	{
 		if(DistanceSquared(player.origin, origin) < dist)
 		{
-			// self = player
 			if(IsFunctionPtr(level.bloodsplatter_callback))
 			{
-				self [[level.bloodsplatter_callback]](origin, dist);
+				player [[level.bloodsplatter_callback]](origin, dist);
 			}
 
 			player splash_blood_on_player();
